@@ -8,8 +8,8 @@
   <body id="page-top">
     
     <% if @user.is_logged_in? %>
-      <h3> <%= @user.username %> </h3>
-      <p> <%= @user.balance %> </p>
+      <h3> <%= Helpers.current_user(session).username %> </h3>
+      <p> <%= Helpers.current_user(session).balance %> </p>
     <% else %>
       <a href="/index.erb">Return to log in page</a>
     <% end %>
