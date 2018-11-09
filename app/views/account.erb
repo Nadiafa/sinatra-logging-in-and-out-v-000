@@ -6,9 +6,13 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    <h3> <%= @user.username %> </h3>
-    <p> <%= @user.balance %> </p>
     
+    <% if @user.is_logged_in? %>
+      <h3> <%= @user.username %> </h3>
+      <p> <%= @user.balance %> </p>
+    <% else %>
+      <a href="/index.erb">Return to log in page</a>
+    <% end %>
     <form action="logout" method="post">
       <p><input type="submit" name="Log Out" /></p>
     </form>
